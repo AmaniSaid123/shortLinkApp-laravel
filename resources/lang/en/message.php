@@ -21,22 +21,21 @@ return [
     'dashboard' => 'Dashboard',
     'links' => 'Links',
     'welcome' => 'You\'re logged in!',
-    
 
+    // Link page
+    'add' => 'Add',
     'short_links' => 'Short Links',
     'created_by' => 'Created By',
     'created_at' => 'Created at',
-   
-
-    // index short code
-
-    'original_url' => 'Original url',
-    'customer' => 'Customer',
+    'actions' => 'Actions',
+    'url' => 'Url',
     'short_url' => 'Short link',
-    'show' => 'Show',
+    'edit' => 'Edit',
     'delete' => 'Delete',
     'create' => 'Generate new short url',
     'generate' => 'Generate short url',
-    'back' => 'Back'
+    'back' => 'Back',
+    'home' => 'Home'
+
   
 ];

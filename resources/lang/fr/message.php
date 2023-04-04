@@ -24,19 +24,18 @@ return [
     'welcome' => 'Vous êtes connecté!',
   
 
- 
+    // Link page
+    'add' => 'Ajouter',
     'short_links' => 'Liens courts',
     'created_by' => 'Créé par',
     'created_at' => 'Créé le',
-    'email_address_user' => 'Adresse e-mail de l\'utilisateur',
-
-    'original_url' => 'Url Original',
-    'customer' => 'Utilisateur',
+    'actions' => 'Actions',
+    'url' => 'Lien',
     'short_url' => 'Court Url',
-    'show' => 'Consulter',
+    'edit' => 'Modifier',
     'delete' => 'Supprimer',
-
     'create' => 'Générer une nouvelle URL courte',
     'generate' => 'Générer courte URL',
-    'back' => 'Retour'
+    'back' => 'Retour',
+    'home' => 'Acceuil'
 ];

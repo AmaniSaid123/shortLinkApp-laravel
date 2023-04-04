@@ -5,22 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header card-header-style">{{ __('Links') }}</div>
+                <div class="card-header card-header-style">{{ __('message.links') }}</div>
                 <div class="card-body">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <p>{{ $message }}</p>
                     </div>
                     @endif
-                    <a class="btn btn-primary btn-color btn-block" href="{{ route('links.create') }}"> {{ __('Add') }}</a>
+                    <a class="btn btn-primary btn-color btn-block" href="{{ route('links.create') }}"> {{ __('message.add') }}</a>
                     <table class="table align-middle mb-0 bg-white">
                         <thead class="bg-light">
                             <tr>
-                                <th>Name</th>
-                                <th>Url</th>
-                                <th>Short Url</th>
-                                <th>Created At</th>
-                                <th>Actions</th>
+                                <th>{{ __('message.name') }}</th>
+                                <th>{{ __('message.url') }}</th>
+                                <th>{{ __('message.short_url') }}</th>
+                                <th>{{ __('message.created_at') }}</th>
+                                <th>{{ __('message.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,9 +49,9 @@
                                         @method('DELETE')
 
                                         <button type="submit" class="btn btn-link btn-sm btn-rounded">
-                                            Delete
+                                        {{ __('message.delete') }}
                                         </button>
-                                        <a class="btn btn-link btn-sm btn-rounded" href="{{ route('links.edit',$link->id) }}">Edit</a>
+                                        <a class="btn btn-link btn-sm btn-rounded" href="{{ route('links.edit',$link->id) }}">{{ __('message.edit') }}</a>
 
                                     </form>
                                 
