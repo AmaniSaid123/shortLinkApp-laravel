@@ -17,9 +17,9 @@ class LinkController extends Controller
     public function index()
     {
         $user = Auth::user();
-
-        $links = $user->links()->latest()->paginate(5);
-
+     
+        $links = Link::where('user_id', auth()->id())->get();
+       
         return view('links.index', compact('links'));
     }
 
