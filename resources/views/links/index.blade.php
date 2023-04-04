@@ -39,7 +39,7 @@
                                     <p class="fw-normal mb-1">{{$link->url}}</p>
                                 </td>
                                 <td>
-                                    <a href="{{ url($link->url) }}" class="uhover">{{$link->short_url}}</a>
+                                    <a href="{{ url($link->url) }}" class="uhover" target="_blank">{{$link->short_url}}</a>
                                 </td>
                                 <td>{{$link->created_at}}</td>
                                 <td>
@@ -59,7 +59,7 @@
                             </tr>
                             @endforeach
                         </tbody>
-                        {!! $links->links() !!}
+                       
                     </table>
                 </div>
             </div>

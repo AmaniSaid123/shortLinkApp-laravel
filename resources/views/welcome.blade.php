@@ -35,12 +35,14 @@
             @endauth
         </div>
         @endif
-
+        @empty($links)
+           <h6>Empty data</h6>
+       
+        @else
         <div class="max-w-8xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
                 <img src="{{ asset('logo.png') }}" alt="logo-short-link-app" width="10%">
             </div>
-
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                     @foreach($links as $link)
@@ -60,10 +62,10 @@
                             <h2 class="mt-6 font-semibold text-gray-900 dark:text-white">{{$link->url}}</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                            {{ __('message.short_url') }}:{{$link->short_url}}
+                                {{ __('message.short_url') }}:{{$link->short_url}}
                             </p>
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                            {{ __('message.created_at') }}: {{$link->created_at}}
+                                {{ __('message.created_at') }}: {{$link->created_at}}
                             </p>
                         </div>
                     </a>
@@ -84,6 +86,8 @@
 
             </div>
         </div>
+        @endif
+
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
