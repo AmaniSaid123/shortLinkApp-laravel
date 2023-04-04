@@ -14,50 +14,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <style>
-        .gradient-custom-2 {
-            /* fallback for old browsers */
-            background: #fccb90;
-
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-        }
-
-        @media (min-width: 768px) {
-            .gradient-form {
-                height: 100vh !important;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .gradient-custom-2 {
-                border-top-right-radius: .3rem;
-                border-bottom-right-radius: .3rem;
-            }
-        }
-
-        .card-header-style {
-            background-color: #dc354517 !important;
-            color: #dc3545 !important;
-        }
-
-        .btn-color {
-            background: #dc3545c7 !important;
-            border-color: #dc3545 !important;
-            width: 100px;
-            margin-bottom: 50px;
-        }
-
-        .back-button {
-            margin-left: 14px;
-            margin-top: 20px;
-            width: 100px;
-        }
-    </style>
-
+    <link href="{{ asset('/css/customer.css') }}" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -76,7 +33,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="dropdown">
+                            <select class="form-select changeLang">
+                                <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{ __('English') }}</option>
+                                <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>{{ __('French') }}</option>
+                            </select>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -85,18 +47,18 @@
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}"> {{ __('message.login') }}</a>
                         </li>
                         @endif
 
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}"> {{ __('message.register') }}</a>
                         </li>
                         @endif
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('links.index') }}">{{ __('Links') }}</a>
+                            <a class="nav-link" href="{{ route('links.index') }}"> {{ __('message.links') }}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -106,7 +68,7 @@
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('message.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -125,5 +87,11 @@
         </main>
     </div>
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var url = "{{ route('changeLang') }}";
+    $(".changeLang").change(function() {
+        window.location.href = url + "?lang=" + $(this).val();
+    });
+</script>
 </html>

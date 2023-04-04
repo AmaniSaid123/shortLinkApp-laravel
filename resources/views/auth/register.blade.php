@@ -16,6 +16,7 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="name">{{ __('message.name') }}</label>
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
@@ -24,42 +25,40 @@
                                     </span>
                                     @enderror
 
-                                    <label class="form-label" for="form2Example11">{{ __('Name') }}</label>
                                 </div>
 
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="email">{{ __('message.email_address') }}</label>
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                    <label class="form-label" for="form2Example22">{{ __('Email Address') }}</label>
                                 </div>
 
 
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="password">{{ __('message.password') }}</label>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                    <label class="form-label" for="form2Example22">{{ __('Password') }}</label>
                                 </div>
 
-
+                                
 
                                 <div class="form-outline mb-4">
+                                    <label class="form-label" for="password">{{ __('message.confirm_password') }}</label>
+
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
-                                    <label class="form-label" for="form2Example22">{{ __('Confirm Password') }}</label>
                                 </div>
 
                                 <div class="text-center pt-1 mb-5 pb-1">
-                                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit"> {{ __('Register') }}</button>
+                                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">{{ __('message.register') }}</button>
 
                                 </div>
 
